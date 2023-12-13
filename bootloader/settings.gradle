@@ -1,6 +1,0 @@
-rootProject.name = 'bootloader'
-include 'application'
-include 'domain'
-include 'infrastructure'
-
-

@@ -2,7 +2,9 @@ package com.fiserv.chargebackapi.adapter.api;
 
 import com.fiserv.chargebackapi.model.CardHolder;
 import com.fiserv.chargebackapi.port.CardHolderPort;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CardHolderRestAdapter implements CardHolderPort {
     @Override
     public CardHolder getCardHolder(String id) {

@@ -1,6 +1,6 @@
 rootProject.name = 'chargeback-api'
+include 'bootloader'
 include 'application'
 include 'domain'
 include 'infrastructure'
-include 'bootloader'
 
