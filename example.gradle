@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.13'
+}
+
+group 'com.jamiltonquintero.hexagonalmodularmaven'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.jamiltonquintero.hexagonalmodularmaven:application:0.0.1-SNAPSHOT'
+    implementation 'com.jamiltonquintero.hexagonalmodularmaven:domain:0.0.1-SNAPSHOT'
+    implementation 'org.springframework:spring-web'
+    implementation 'com.h2database:h2'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.7.13'
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 11
+targetCompatibility = 11
