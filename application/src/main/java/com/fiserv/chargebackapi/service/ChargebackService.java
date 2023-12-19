@@ -1,24 +1,21 @@
 package com.fiserv.chargebackapi.service;
 
-
-import com.fiserv.chargebackapi.event.CreateChargeback;
-import com.fiserv.chargebackapi.event.GetChargebackByRefNumber;
+import com.fiserv.chargebackapi.model.Chargeback;
+import com.fiserv.chargebackapi.port.ChargebackPort;
 
 public class ChargebackService {
-    private final CreateChargeback createChargeback;
-    private final GetChargebackByRefNumber getChargebackByRefNumber;
+    private final ChargebackPort chargebackPort;
 
-    public ChargebackService(CreateChargeback createChargeback, GetChargebackByRefNumber getChargebackByRefNumber) {
-        this.createChargeback = createChargeback;
-        this.getChargebackByRefNumber = getChargebackByRefNumber;
+    public ChargebackService(ChargebackPort chargebackPort) {
+        this.chargebackPort = chargebackPort;
     }
 
 
-    public CreateChargeback getCreateChargeback() {
-        return createChargeback;
+    public Chargeback createChargeback(Chargeback chargeback) {
+        return chargebackPort.saveChargeback(chargeback);
     }
 
-    public GetChargebackByRefNumber getGetChargebackByRefNumber() {
-        return getChargebackByRefNumber;
+    public Chargeback getGetChargebackByRefNumber(String refNumber) {
+        return chargebackPort.getChargeback(refNumber);
     }
 }

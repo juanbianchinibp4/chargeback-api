@@ -19,14 +19,14 @@ public class CreateClaimUseCase {
         this.cardHolderService = cardHolderService;
     }
 
-    public Claim createClaim(String cardNumber) { //esto podria ser un payload con cosas que necesito para crear un reclamo
-        Card card = cardService.getGetCardByCardNumber().apply(cardNumber);
+    public Claim createClaim(String cardNumber) {
+        Card card = cardService.getGetCardByCardNumber(cardNumber);
 
-        CardHolder cardHolder = cardHolderService.getCardHolderByCardId().apply(card.getId());
+        CardHolder cardHolder = cardHolderService.getCardHolderByCardId(card.getId());
 
         Chargeback chargeback = new Chargeback(cardHolder);
 
-        chargebackService.getCreateChargeback().apply(chargeback);
+        chargebackService.createChargeback(chargeback);
 
         return new Claim(chargeback);
     }

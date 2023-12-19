@@ -1,16 +1,17 @@
 package com.fiserv.chargebackapi.service;
 
-import com.fiserv.chargebackapi.event.GetCardHolderByCardId;
+import com.fiserv.chargebackapi.model.CardHolder;
+import com.fiserv.chargebackapi.port.CardHolderPort;
 
 public class CardHolderService {
-    private final GetCardHolderByCardId cardHolderByCardId;
+    private final CardHolderPort cardHolderPort;
 
-    public CardHolderService(GetCardHolderByCardId cardHolderByCardId) {
-        this.cardHolderByCardId = cardHolderByCardId;
+    public CardHolderService(CardHolderPort cardHolderPort) {
+        this.cardHolderPort = cardHolderPort;
     }
 
 
-    public GetCardHolderByCardId getCardHolderByCardId() {
-        return cardHolderByCardId;
+    public CardHolder getCardHolderByCardId(String cardId) {
+        return cardHolderPort.getCardHolder(cardId);
     }
 }

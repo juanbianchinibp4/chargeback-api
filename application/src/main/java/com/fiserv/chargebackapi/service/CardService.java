@@ -1,19 +1,19 @@
 package com.fiserv.chargebackapi.service;
 
-
-import com.fiserv.chargebackapi.event.GetCardByCardNumber;
+import com.fiserv.chargebackapi.model.Card;
+import com.fiserv.chargebackapi.port.CardPort;
 
 public class CardService {
 
-    private final GetCardByCardNumber getCardByCardNumber;
+    private final CardPort cardPort;
 
 
-    public CardService(GetCardByCardNumber getCardByCardNumber) {
-        this.getCardByCardNumber = getCardByCardNumber;
+    public CardService(CardPort cardPort) {
+        this.cardPort = cardPort;
     }
 
 
-    public GetCardByCardNumber getGetCardByCardNumber() {
-        return getCardByCardNumber;
+    public Card getGetCardByCardNumber(String cardNumber) {
+        return cardPort.getCard(cardNumber);
     }
 }
